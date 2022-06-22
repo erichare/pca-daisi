@@ -12,10 +12,10 @@ from bokeh.layouts import gridplot
 
 def _recode_iris_variety(species: str):
     '''
-    Internal function to recode from the 0/1/2 species encoding to human readable labels
+        Internal function to recode from the 0/1/2 species encoding to human readable labels
 
-    :param int species: The species integer code
-    :returns str
+        :param int species: The species integer code
+        :returns str
     '''
     if species == 0:
         return "Setosa"
@@ -29,18 +29,18 @@ def _recode_iris_variety(species: str):
 
 def plot_pca(pca_data, x_component=1, y_component=2, split_by=None):
     '''
-    Plot a PCA in Bokeh of the given data
+        Plot a PCA in Bokeh of the given data
+        
+        This function takes a pre-computed PCA dataset, along with parameters
+        to specify the components to plot, and optionally a split variable,
+        and renders a Bokeh visualization of the given data
 
-    - This function takes a pre-computed PCA dataset, along with parameters
-    - to specify the components to plot, and optionally a split variable,
-    - and renders a Bokeh visualization of the given data
-
-    :param pca_data pd.DataFrame: The PCA data which to plot
-    :param x_component int: The component number to plot on the x axis
-    :param y_component int: The component number to plot on the y axis
-    :param split_by str: Optionally, the variable to split/color by 
-    
-    :returns bokeh.plotting.figure.Figure
+        :param pca_data pd.DataFrame: The PCA data which to plot
+        :param x_component int: The component number to plot on the x axis
+        :param y_component int: The component number to plot on the y axis
+        :param split_by str: Optionally, the variable to split/color by 
+        
+        :returns bokeh.plotting.figure.Figure
     '''
     fig = figure(plot_width=1000, plot_height=1000)
 
@@ -69,16 +69,17 @@ def plot_pca(pca_data, x_component=1, y_component=2, split_by=None):
 
 def fit_pca(df: pd.DataFrame=None, vars=None, n_components=2):
     '''
-    Fit a PCA to the given dataset
+        Fit a PCA to the given dataset
 
-    This function takes a data frame and, given the specified variables
-    and number of components, fits a PCA to the data. If the input data
-    frame is not specified, the iris data is used by default
+        This function takes a data frame and, given the specified variables
+        and number of components, fits a PCA to the data. If the input data
+        frame is not specified, the iris data is used by default
 
-    :param df pd.DataFrame: The data with which to generate Prinicpal Components
-    :param vars str: Comma-separated list of variables to include for the PCA
-    :param n_components int: The number of components to generate
-    :returns pd.DataFrame
+        :param df pd.DataFrame: The data with which to generate Prinicpal Components
+        :param vars str: Comma-separated list of variables to include for the PCA
+        :param n_components int: The number of components to generate
+
+        :returns pd.DataFrame
     '''
     if type(df) == str and os.path.isfile(df):
         df = pd.read_csv(df)
@@ -91,6 +92,8 @@ def fit_pca(df: pd.DataFrame=None, vars=None, n_components=2):
         df["variety"] = df["variety"].apply(_recode_iris_variety)
 
         df.columns = ["Sepal Length", "Sepal Width", "Petal Length", "Petal Width", "Variety"]
+
+    df.dropna(axis=0, how='any', inplace=True)
 
     other_cols = []
     numeric_vars = df.select_dtypes([np.number]).columns
