@@ -6,7 +6,6 @@ First, we simply load the PyDaisi package:
 
 ```python
 import pydaisi as pyd
-import pandas as pd
 ```
 
 Next, we connect to the Daisi:
