@@ -121,6 +121,7 @@ def fit_pca(df: pd.DataFrame=None, vars=None, n_components=2):
     return pca_data
 
 if __name__ == "__main__":
+    st.set_page_config(layout = "wide")
     st.title("Generalized Principal Components Analysis")
 
     st.write("This Daisi, powered by Streamlit, allows for a generalized specification of a Principal Components Analysis. Upload your data to get started!")
