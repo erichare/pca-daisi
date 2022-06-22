@@ -43,8 +43,6 @@ def plot_pca(pca_data, x_component=1, y_component=2, split_by=None):
     :return: Bokeh Visualization of PCA Results
     '''
 
-    return pca_data
-
     fig = figure(plot_width=1000, plot_height=1000)
 
     if not split_by:
