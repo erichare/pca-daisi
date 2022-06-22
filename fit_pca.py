@@ -31,14 +31,15 @@ def plot_pca(pca_data, x_component=1, y_component=2, split_by=None):
     '''
     Plot a PCA in Bokeh of the given data
 
-    This function takes a pre-computed PCA dataset, along with parameters
-    to specify the components to plot, and optionally a split variable,
-    and renders a Bokeh visualization of the given data
+    - This function takes a pre-computed PCA dataset, along with parameters
+    - to specify the components to plot, and optionally a split variable,
+    - and renders a Bokeh visualization of the given data
 
     :param pca_data pd.DataFrame: The PCA data which to plot
     :param x_component int: The component number to plot on the x axis
     :param y_component int: The component number to plot on the y axis
     :param split_by str: Optionally, the variable to split/color by 
+    
     :returns bokeh.plotting.figure.Figure
     '''
     fig = figure(plot_width=1000, plot_height=1000)
