@@ -124,7 +124,7 @@ if __name__ == "__main__":
     st.set_page_config(layout = "wide")
     st.title("Generalized Principal Components Analysis")
 
-    st.write("This Daisi, powered by Streamlit, allows for a generalized specification of a Principal Components Analysis. Upload your data to get started!")
+    st.write("This Daisi allows for a generalized specification of a Principal Components Analysis. Upload your data to get started!")
     with st.sidebar:
         uploaded_file = st.file_uploader("Choose a file")
     
