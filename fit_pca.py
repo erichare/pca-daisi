@@ -35,10 +35,10 @@ def plot_pca(pca_data, x_component=1, y_component=2, split_by=None):
     to specify the components to plot, and optionally a split variable,
     and renders a Bokeh visualization of the given data
 
-    :param pca_data pd.DataFrame: The PCA data which to plot
-    :param x_component int: The component number to plot on the x axis
-    :param y_component int: The component number to plot on the y axis
-    :param split_by str: Optionally, the variable to split/color by 
+    :param pd.DataFrame pca_data: The PCA data which to plot
+    :param int x_component: The component number to plot on the x axis
+    :param int y_component: The component number to plot on the y axis
+    :param str split_by: Optionally, the variable to split/color by 
     
     :return: Bokeh Visualization of PCA Results
     '''
@@ -76,9 +76,9 @@ def fit_pca(df: pd.DataFrame=None, vars=None, n_components=2):
     and number of components, fits a PCA to the data. If the input data
     frame is not specified, the iris data is used by default
 
-    :param df pd.DataFrame: The data with which to generate Prinicpal Components
-    :param vars str: Comma-separated list of variables to include for the PCA
-    :param n_components int: The number of components to generate
+    :param pd.DataFrame df: The data with which to generate Prinicpal Components
+    :param str vars: Comma-separated list of variables to include for the PCA
+    :param int n_components: The number of components to generate
 
     :return: DataFrame of PCA Results
     '''
